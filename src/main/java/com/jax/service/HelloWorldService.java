@@ -1,0 +1,29 @@
+package com.jax.service;
+ 
+import com.google.inject.Inject;
+import com.jax.guice.GuicyInterface;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
+ 
+@Path("/")
+public class HelloWorldService {
+    private final GuicyInterface gi;
+
+    @Inject
+    public HelloWorldService (final GuicyInterface gi) {
+        this.gi = gi;
+    }
+	@GET
+	@Path("/{param}")
+	public Response getMsg(@PathParam("param") String msg) {
+ 
+		String output = "Jersey say : " + msg;
+ 
+		return Response.status(200).entity(output).build();
+ 
+	}
+ 
+}
