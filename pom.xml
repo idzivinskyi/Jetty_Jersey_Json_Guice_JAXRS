@@ -85,7 +85,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.jax.guice.GuiceLauncher</mainClass>
+                    <mainClass>com.idzivinskyi.guice.GuiceLauncher</mainClass>
                     <!--<mainClass>com.jax.run.RunMain</mainClass>-->
                 </configuration>
             </plugin>
