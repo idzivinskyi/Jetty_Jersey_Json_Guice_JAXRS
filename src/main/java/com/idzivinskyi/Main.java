@@ -1,6 +1,7 @@
 package com.idzivinskyi;
 
 
+import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.servlet.ServletModule;
@@ -15,13 +16,13 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        final Injector injector = Guice.createInjector(new ServletModule() {
-            // Configure your IOC
+        final Injector injector = Guice.createInjector(new AbstractModule() {
+
             @Override
-            protected void configureServlets() {
+            protected void configure() {
                 bind(BuildModule.class);
             }
-        });
+        }, new ServletModule());
 
         Server server = injector.getInstance(HttpServer.class).getServer(injector);
 

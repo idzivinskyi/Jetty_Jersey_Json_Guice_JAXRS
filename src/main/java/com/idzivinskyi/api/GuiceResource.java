@@ -1,10 +1,10 @@
 package com.idzivinskyi.api;
 
 
-import com.google.inject.Inject;
 import com.google.inject.servlet.RequestScoped;
 import com.idzivinskyi.module.BuildModule;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;

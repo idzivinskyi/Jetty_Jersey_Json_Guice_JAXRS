@@ -22,8 +22,6 @@ task deleteLibs << {
 clean.dependsOn("deleteLibs")
 
 dependencies {
-
-    compile('com.google.guava:guava:14.0.1')
     compile('com.google.inject:guice:3.0')
     compile('com.google.inject.extensions:guice-multibindings:3.0'){
         exclude(module: 'guice')
@@ -31,21 +29,21 @@ dependencies {
     compile('com.google.inject.extensions:guice-servlet:3.0'){
         exclude(module: 'guice')
     }
-
-    compile('org.mortbay.jetty:servlet-api:3.0.20100224')
-
+    compile ('org.glassfish.hk2:guice-bridge:2.2.0-b15'){
+        exclude(module: 'guice')
+    }
 
     compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.2'
-    compile 'org.glassfish.hk2:guice-bridge:2.2.0-b15'
 
-    compile 'org.eclipse.jetty:jetty-server:9.0.3.v20130506'
-//    compile 'org.eclipse.jetty:jetty-webapp:9.0.3.v20130506'
-    compile('org.mortbay.jetty:servlet-api:3.0.20100224')
+    compile 'org.eclipse.jetty:jetty-webapp:9.0.3.v20130506'
+    compile 'org.mortbay.jetty:servlet-api-3.0:7.0.0pre2'
 
     compile 'org.slf4j:slf4j-api:1.7.5'
     compile 'ch.qos.logback:logback-classic:1.0.13'
-    testCompile 'junit:junit:4+'
-    testCompile 'org.mockito:mockito-all:1.8+'
+
+    compile('com.google.guava:guava:+')
+    testCompile 'junit:junit:+'
+    testCompile 'org.mockito:mockito-all:+'
 }
 
 task copyDeps(dependsOn: 'clean') << {
