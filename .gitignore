@@ -1,10 +1,14 @@
 .idea
+.target
+.gradle
+
 *.iml
+*.iws
+*.ipr
 *.war
 *.jar
-.target
+
 dist
 build
-.gradle
 lib
 out
