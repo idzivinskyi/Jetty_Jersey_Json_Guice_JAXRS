@@ -1,0 +1,29 @@
+project(':app') {
+    mainClassName = 'com.idzivinskyi.Main'
+
+    dependencies {
+        compile "com.google.inject:guice:$guiceVersion"
+        compile "com.google.inject.extensions:guice-multibindings:$guiceVersion"
+        compile "com.google.inject.extensions:guice-servlet:$guiceVersion"
+        compile "com.google.inject.extensions:guice-assistedinject:$guiceVersion"
+
+        compile "org.eclipse.jetty:jetty-servlets:$jettyVersion"
+        compile "org.eclipse.jetty:jetty-servlet:$jettyVersion"
+        compile "org.eclipse.jetty:jetty-rewrite:$jettyVersion"
+
+        compile "org.glassfish.jersey.containers:jersey-container-servlet:$jersey2"
+        compile "org.glassfish.jersey.ext:jersey-proxy-client:$jersey2"
+        compile "org.glassfish.jersey.media:jersey-media-multipart:$jersey2"
+        compile 'org.glassfish.hk2:guice-bridge:2.4.0-b10'
+
+        compile 'org.slf4j:slf4j-api:1.7.5'
+        compile 'ch.qos.logback:logback-classic:1.0.13'
+
+        compile 'com.google.guava:guava:+'
+        compile 'com.google.code.gson:gson:+'
+        compile 'joda-time:joda-time:2.9.1'
+
+        testCompile 'junit:junit:+'
+        testCompile 'org.mockito:mockito-all:+'
+    }
+}

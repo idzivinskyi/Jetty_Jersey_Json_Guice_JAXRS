@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+  <property name="logDir" value="${LOGBACK_PATH}"/>
+
+  <property name="defaultPattern"
+            value="%d %-5level %logger{5} - %msg%n"/>
+
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${defaultPattern}</pattern>
+    </encoder>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="stdout"/>
+  </root>
+</configuration>
