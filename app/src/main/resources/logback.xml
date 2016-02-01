@@ -5,6 +5,20 @@
   <property name="defaultPattern"
             value="%d %-5level %logger{5} - %msg%n"/>
 
+  <appender name="logAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${logDir}/app.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${logDir}/app-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+      <MaxHistory>3</MaxHistory>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>2MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${defaultPattern}</pattern>
+    </encoder>
+  </appender>
+
   <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
       <pattern>${defaultPattern}</pattern>
@@ -12,6 +26,8 @@
   </appender>
 
   <root level="info">
+    <!--<appender-ref ref="logAppender"/>-->
     <appender-ref ref="stdout"/>
   </root>
+
 </configuration>
